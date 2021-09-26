@@ -1,0 +1,29 @@
+base:
+  is_dev: false
+out_dir: internal/repository/models
+url_tag: json
+language: 中 文
+db_tag: gorm
+simple: false
+is_web_tag: false
+is_web_tag_pk_hidden: false
+is_foreign_key: true
+is_out_sql: false
+is_out_func: false
+is_gui: false
+is_table_name: true
+is_null_to_point: false
+table_prefix: ""
+self_type_define: {}
+out_file_name: ""
+table_names: ""
+is_column_name: false
+is_out_file_by_table_name: true
+web_tag_type: 1
+is_table_name_use_camel_mame: true
+is_soft_delete_enabled :  true
+soft_delete_field : isDeleted
+hook_before_save:
+  updateTime: Updated
+hook_before_create:
+  updateTime: Created,Updated
