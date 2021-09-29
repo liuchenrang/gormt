@@ -10,8 +10,9 @@ func (m *{{.StructName}}) TableName() string {
 	genTnBc = `
 // TableName get sql table name.获取数据库表名
 func (m *{{.StructName}}) BeforeCreate() (err error)  {
+	nowTime := time.Now().Unix()
 	{{range $em := .FS}}
-		m.{{$em.Name}} = {{$em.Type}}(time.Now().Unix())
+		m.{{$em.Name}} = {{$em.Type}}(nowTime)
  	{{end}}    
 	return
 }
