@@ -22,6 +22,11 @@ func getCamelName(name string) string {
 
 	return mybigcamel.Marshal(name)
 }
+func CamelName(name string) string {
+	name = strings.Replace(name, "_", " ", -1)
+	name = strings.Title(name)
+	return strings.Replace(name, " ", "", -1)
+}
 
 // titleCase title case.首字母大写
 func titleCase(name string) string {
