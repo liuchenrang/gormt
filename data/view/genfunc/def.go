@@ -9,18 +9,18 @@ func (m *{{.StructName}}) TableName() string {
 `
 	genTnBc = `
 // TableName get sql table name.获取数据库表名
-func (m *{{.StructName}}) BeforeCreate() (err error)  {
+func (m *{{.StructName}}) BeforeCreate(tx *gorm.DB) (err error)  {
 	nowTime := time.Now().Unix()
 	{{range $em := .FS}}
-		m.{{$em.Name}} = {{$em.Type}}(nowTime)
+		m.{{$em.Name}} = nowTime
  	{{end}}    
 	return
 }
 `
 	genTnBs = `
 // TableName get sql table name.获取数据库表名
-func (m *{{.StructName}}) BeforeSave() (err error)  {
-	m.{{.U.Name}} = {{.U.Type}}(time.Now().Unix())
+func (m *{{.StructName}}) BeforeSave(tx *gorm.DB) (err error)  {
+	m.{{.U.Name}} = time.Now().Unix()
 	return
 }
 `

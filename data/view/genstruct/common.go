@@ -332,6 +332,7 @@ func (p *GenPackage) Generate() string {
 		hasSave := config.GetHookBeforeCreate() != nil && len(config.GetHookBeforeCreate()) > 0
 		if hasCreate || hasSave {
 			p.Imports["time"] = "\"time\""
+			p.Imports["gorm.io"] = "\"gorm.io/gorm\""
 		}
 		pa.Add("import (")
 		for _, v := range p.Imports {
