@@ -127,7 +127,7 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 		if strings.EqualFold(v.Type, "gorm.Model") { // gorm model
 			tmp.SetType(v.Type) //
 		} else {
-			tmp.SetName(getCamelName(v.Name))
+			tmp.SetName(CamelName(v.Name))
 			tmp.SetNotes(v.Notes)
 			tmp.SetType(getTypeName(v.Type, v.IsNull))
 			// 是否输出gorm标签
